@@ -1,4 +1,4 @@
-const { isAuth } = require("../../middleware/auth.middleware");
+const { isAuthAdmin } = require("../../middleware/auth.middleware");
 const { uploadGame } = require("../../middleware/files.middleware");
 const {
   postGame,
@@ -15,20 +15,20 @@ const {
 
 const GameRoutes = require("express").Router();
 
-GameRoutes.post("/", [isAuth], uploadGame.single("image"), postGame);
+GameRoutes.post("/", [isAuthAdmin], uploadGame.single("image"), postGame);
 GameRoutes.get("/:id", getById);
 GameRoutes.get("/getByName/name", getByName);
 GameRoutes.get("/get/all/skip", getSkip);
 GameRoutes.get("/", getAllGames);
 GameRoutes.patch(
   "/update/:id",
-  [isAuth],
+  [isAuthAdmin],
   uploadGame.single("image"),
   updateGame,
 );
-GameRoutes.patch("/toggle/:id", [isAuth], togglePlatform);
+GameRoutes.patch("/toggle/:id", [isAuthAdmin], togglePlatform);
 GameRoutes.get("/get/popular/games/sorted", getPopularGames);
 GameRoutes.get("/get/games/by/genre/sorted", getByGenre);
-GameRoutes.delete("/:id", [isAuth], deleteGame);
+GameRoutes.delete("/:id", [isAuthAdmin], deleteGame);
 
 module.exports = GameRoutes;

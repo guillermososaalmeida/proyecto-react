@@ -1,15 +1,14 @@
 const { deleteImgCloudinary } = require("../../middleware/files.middleware");
 const Game = require("../models/Game.model");
 const Platform = require("../models/Platform.model");
-const User = require("../models/User.model");
+//const User = require("../models/User.model");
 
 //! CREATE PLATFORM
 
 const postPlatform = async (req, res, next) => {
   let catchImage = req.file?.path;
   try {
-    const { rol } = req.user;
-    if (rol === "admin") {
+    {
       await Platform.syncIndexes();
 
       const newPlatform = new Platform(req.body);
@@ -28,8 +27,6 @@ const postPlatform = async (req, res, next) => {
       } else {
         return res.status(404).json("Platform not saved in database");
       }
-    } else {
-      return res.status(403).json("You're not authorized");
     }
   } catch (error) {
     req.file?.path && deleteImgCloudinary(catchImage);
@@ -89,8 +86,7 @@ const getAllPlatforms = async (req, res, next) => {
 const updatePlatform = async (req, res, next) => {
   let catchImg = req.file?.path;
   try {
-    const { rol } = req.user;
-    if (rol === "admin") {
+    {
       const { id } = req.params;
 
       const platformById = await Platform.findById(id);
@@ -151,8 +147,6 @@ const updatePlatform = async (req, res, next) => {
       } else {
         return res.status(404).json("platform not found");
       }
-    } else {
-      return res.status(403).json("You're not authorized");
     }
   } catch (error) {
     if (req.file) deleteImgCloudinary(catchImg);
@@ -163,8 +157,7 @@ const updatePlatform = async (req, res, next) => {
 //! TOGGLE GAME
 const toggleGame = async (req, res, next) => {
   try {
-    const { rol } = req.user;
-    if (rol === "admin") {
+    {
       let arrayGames;
       const { id } = req.params;
       const { games } = req.body;
@@ -233,8 +226,6 @@ const toggleGame = async (req, res, next) => {
       } else {
         return res.status(404).json("platform not found");
       }
-    } else {
-      return res.status(403).json("You're not authorized");
     }
   } catch (error) {
     return next(error);
@@ -308,14 +299,12 @@ const getNewGames = async (req, res, next) => {
 //! DELETE PLATFORM
 const deletePlatform = async (req, res, next) => {
   try {
-    const { _id } = req.user;
     const { id } = req.params;
     const { author } = req.body;
     const platformToDelete = await Platform.findById(id);
     const isAuthor = platformToDelete.author;
     const { image } = platformToDelete;
-    const isAdmin = await User.findById(_id);
-    if (isAdmin.rol === "admin" || isAuthor == author) {
+    if (isAuthor == author) {
       await Platform.findByIdAndDelete(id);
 
       try {

@@ -10,10 +10,7 @@ const postGame = async (req, res, next) => {
   let catchImage = req.file?.path;
 
   try {
-    const { _id } = req.user;
-
-    const isAdmin = await User.findById(_id);
-    if (isAdmin.rol === "admin") {
+    {
       try {
         await Game.syncIndexes();
 
@@ -37,8 +34,6 @@ const postGame = async (req, res, next) => {
         req.file?.path && deleteImgCloudinary(catchImage);
         return next(error);
       }
-    } else {
-      return res.status(403).json("You're not authorized");
     }
   } catch (error) {
     return res
@@ -109,8 +104,7 @@ const getSkip = async (req, res, next) => {
 const updateGame = async (req, res, next) => {
   let catchImg = req.file?.path;
   try {
-    const { rol } = req.user;
-    if (rol === "admin") {
+    {
       const { id } = req.params;
 
       const gameById = await Game.findById(id);
@@ -171,8 +165,6 @@ const updateGame = async (req, res, next) => {
       } else {
         return res.status(404).json("game not found");
       }
-    } else {
-      return res.status(404).json("platforms not found");
     }
   } catch (error) {
     if (req.file) deleteImgCloudinary(catchImg);
@@ -183,8 +175,7 @@ const updateGame = async (req, res, next) => {
 //! TOGGLE GAME
 const togglePlatform = async (req, res, next) => {
   try {
-    const { rol } = req.user;
-    if (rol === "admin") {
+    {
       let arrayPlatforms;
 
       const { id } = req.params;
@@ -253,8 +244,6 @@ const togglePlatform = async (req, res, next) => {
       } else {
         return res.status(404).json("game not found");
       }
-    } else {
-      return res.status(403).json("You're not authorized");
     }
   } catch (error) {
     return next(error);
@@ -300,14 +289,12 @@ const getByGenre = async (req, res, next) => {
 //Este controlador permite al usuario con rol admin o author borrar un juego y que se vea reflejado en los registros del resto de usuarios.
 const deleteGame = async (req, res, next) => {
   try {
-    const { _id } = req.user;
     const { id } = req.params;
     const { author } = req.body;
     const gameToDelete = await Game.findById(id);
     const isAuthor = gameToDelete.author;
     const { image } = gameToDelete;
-    const isAdmin = await User.findById(_id);
-    if (isAdmin.rol === "admin" || isAuthor == author) {
+    if (isAuthor == author) {
       await Game.findByIdAndDelete(id);
 
       try {

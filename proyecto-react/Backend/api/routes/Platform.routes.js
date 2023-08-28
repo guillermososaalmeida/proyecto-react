@@ -1,4 +1,4 @@
-const { isAuth } = require("../../middleware/auth.middleware");
+const { isAuthAdmin } = require("../../middleware/auth.middleware");
 const { uploadPlatform } = require("../../middleware/files.middleware");
 const {
   postPlatform,
@@ -17,7 +17,7 @@ const PlatformRoutes = require("express").Router();
 
 PlatformRoutes.post(
   "/",
-  [isAuth],
+  [isAuthAdmin],
   uploadPlatform.single("image"),
   postPlatform,
 );
@@ -26,12 +26,12 @@ PlatformRoutes.get("/getByName/name", getByName);
 PlatformRoutes.get("/", getAllPlatforms);
 PlatformRoutes.patch(
   "/update/:id",
-  [isAuth],
+  [isAuthAdmin],
   uploadPlatform.single("image"),
   updatePlatform,
 );
-PlatformRoutes.patch("/toggle/:id", [isAuth], toggleGame);
-PlatformRoutes.delete("/:id", [isAuth], deletePlatform);
+PlatformRoutes.patch("/toggle/:id", [isAuthAdmin], toggleGame);
+PlatformRoutes.delete("/:id", [isAuthAdmin], deletePlatform);
 PlatformRoutes.get("/get/popular/platforms/sorted", getPopularPlatforms);
 PlatformRoutes.get("/get/platforms/by/amount/of/games", getAmountPlatforms);
 PlatformRoutes.get("/get/sorted/games/by/year/new/newest/:id", getNewGames);
