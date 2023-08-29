@@ -2,12 +2,13 @@ import { useForm } from "react-hook-form";
 import "./Register.css";
 
 import { useEffect, useState } from "react";
-import { Uploadfile } from "../components";
 
-import { useRegisterError } from "../hooks";
 import { Link, Navigate } from "react-router-dom";
-import { useAuth } from "../context/authContext";
-import { registerUser } from "../service/API_user/user.service";
+import { Uploadfile } from "../../components";
+import { useRegisterError } from "../../hooks/useRegisterError";
+import { useAuth } from "../../context/authContext";
+import { registerUser } from "../../services/user.service";
+import { FormControl } from "@chakra-ui/react";
 
 export const Register = () => {
   const { setAllUser, bridgeData } = useAuth();

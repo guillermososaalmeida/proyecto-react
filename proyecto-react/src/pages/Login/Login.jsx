@@ -1,10 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { login } from "../service/API_user/user.service";
 import { Heading, Box } from "@chakra-ui/react";
 import { FormControl, FormLabel, Flex, FormHelperText } from "@chakra-ui/react";
 import { Input, Button, Center } from "@chakra-ui/react";
 import "./Login.css";
+import { login } from "../../services/user.service";
 export const Login = () => {
   const { handleSubmit, register } = useForm();
 

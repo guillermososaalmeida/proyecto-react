@@ -10,11 +10,11 @@ import {
   Input,
   Stack,
 } from "@chakra-ui/react";
-import { useAuth } from "../context/authContext";
 import "./CheckCode.css";
-import { useCheckCodeError } from "../hooks/useCheckCodeError";
 import { Navigate } from "react-router-dom";
 import { checkCodeConfirmationUser } from "../../services/user.service";
+import { useAuth } from "../../context/authContext";
+import { useCheckCodeError } from "../../hooks/useCheckCodeError";
 
 export const CheckCode = () => {
   const [confirmationCodeResponse, setConfirmationCodeResponse] = useState({});
@@ -23,8 +23,6 @@ export const CheckCode = () => {
   const { allUser, userLogin, setUser } = useAuth();
   const { register, handleSubmit } = useForm();
   const handleReSend = () => {};
-
-  console.log(allUser);
 
   const formSubmit = async ({ confirmationCode }) => {
     const userLocal = localStorage.getItem("user");
@@ -51,6 +49,7 @@ export const CheckCode = () => {
       );
       setIsLoading(false);
     }
+    console.log(allUser);
   };
 
   useEffect(() => {
