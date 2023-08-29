@@ -23,7 +23,6 @@ export const Register = () => {
 
   const formSubmit = async (formData) => {
     const inputFile = document.getElementById("file-upload").files;
-    console.log(inputFile);
 
     if (inputFile.length !== 0) {
       // cuando me han hayan puesto una imagen por el input
@@ -65,9 +64,6 @@ export const Register = () => {
   //! ------------------------------------------------------------------------------
 
   if (okRegister) {
-    console.log("res", res);
-    console.log("registro correcto ya puedes navegar");
-
     // no se puede utilizar el useNavigate porque es un hook y esto es un if y son incompatibles
     // por lo caul utilizamos un compnente que nos lo react-hook-form
     return <Navigate to="/verifyCode" />;

@@ -1,21 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Heading, Box } from "@chakra-ui/react";
-import { FormControl, FormLabel, Flex, FormHelperText } from "@chakra-ui/react";
-import { Input, Button, Center } from "@chakra-ui/react";
-import "./Login.css";
+import {
+  FormControl,
+  FormLabel,
+  Flex,
+  FormHelperText,
+  Heading,
+  Box,
+  Input,
+  Button,
+  Center,
+  Text,
+} from "@chakra-ui/react";
 import { login } from "../../services/user.service";
+import "./Login.css";
+import { Link } from "react-router-dom";
+import { useLoginError } from "../../hooks/useLoginError";
+import { useAuth } from "../../context/authContext";
+
 export const Login = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [loggedUser, setLoggedUser] = useState({});
+  const [loginOk, setLoginOk] = useState(false);
+  const { userLogin, setUser } = useAuth();
+
   const { handleSubmit, register } = useForm();
 
-  //componetizar por una parte el welcome y por otra el login, y este componente que se encargue de saber si está logado o no
-  return false ? (
-    //!false por testear el login pero hay que cambiarlo
-    <div>
-      <Heading>Welcome, {username}!</Heading>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
-  ) : (
+  const formSubmit = async (formData) => {
+    setIsLoading(true);
+    setLoggedUser(await login(formData));
+    //llama al servicio de login con los datos del formulario para logarlo y darle token
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    //! revisar nombres de estados
+    useLoginError(loggedUser, setLoggedUser, userLogin, setLoginOk);
+  }, [loggedUser]);
+
+  useEffect(() => {
+    setUser(() => null);
+    localStorage.removeItem("user");
+  }, []);
+
+  //!GESTIONAR EL REDIRECT SI SE LOGEA O NO
+
+  return (
     <>
       <Flex width="full" align="center" justifyContent="center">
         <Box
@@ -31,11 +61,12 @@ export const Login = () => {
               Login
             </Heading>
           </Box>
-          <form onSubmit={handleSubmit(login)}>
+          <form onSubmit={handleSubmit(formSubmit)}>
             <FormControl isRequired mt={10}>
               <label>
                 <FormLabel>Email</FormLabel>
                 <Input
+                  id="emailInputLogin"
                   size="lg"
                   type="email"
                   placeholder="Email"
@@ -48,28 +79,36 @@ export const Login = () => {
               <label>
                 <FormLabel>Password</FormLabel>
                 <Input
+                  id="passwordInputLogin"
                   type="password"
                   placeholder="Password"
                   {...register("password", {})}
                   size="lg"
                 />
               </label>
+              <Button
+                colorScheme="pink"
+                variant="outline"
+                type="submit"
+                minW="2xs"
+                mt={4}
+                size="lg"
+              >
+                Login
+              </Button>
             </FormControl>
+
+            <Text>
+              Forgot password?
+              <Link to="/forgotpassword">Reset password</Link>
+            </Text>
           </form>
         </Box>
+
+        <p>
+          Are you not registered? <Link to="/register">Register Here</Link>
+        </p>
       </Flex>
-      <Center>
-        <Button
-          colorScheme="pink"
-          variant="outline"
-          type="submit"
-          minW="2xs"
-          mt={4}
-          size="lg"
-        >
-          Login
-        </Button>
-      </Center>
     </>
   );
 };
