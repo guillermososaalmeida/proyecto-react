@@ -25,3 +25,11 @@ export const login = async (formData) => {
     })
     .catch((error) => error);
 };
+
+//! -------------------------------- AUTOLOGIN ----------------------------------
+
+export const autologinUser = async (formData) => {
+  return APIuser.post("/users/login/autologin", formData)
+    .then((res) => res)
+    .catch((error) => error);
+};
