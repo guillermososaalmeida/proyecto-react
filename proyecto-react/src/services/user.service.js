@@ -1,3 +1,4 @@
+import { updateToken } from "../utils/updateToken";
 import { APIuser } from "./serviceApiUser.config";
 
 //! ------------------------------- REGISTER -----------------------------------
@@ -34,10 +35,14 @@ export const autologinUser = async (formData) => {
     .catch((error) => error);
 };
 
-//! -------------------------------- BPRRADP DEL USUARIO -------------------------
+//! -------------------------------- BORRADO DEL USUARIO -------------------------
 
 export const deleteUserService = async () => {
-  return APIuser.delete("/users/")
+  return APIuser.delete("/users/", {
+    headers: {
+      Authorization: `Bearer ${updateToken()}`,
+    },
+  })
     .then((res) => res)
     .catch((error) => error);
 };

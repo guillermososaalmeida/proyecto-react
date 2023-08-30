@@ -26,6 +26,14 @@ export const useDeleteUser = (setUser) => {
           break;
 
         default:
+          Swal.fire({
+            icon: "error",
+            title: "No delete User ❎",
+            text: "Please, try again",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+
           break;
       }
     }

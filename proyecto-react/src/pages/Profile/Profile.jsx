@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useAuth } from "../../context/authContext";
 import "./Profile.css";
 import { ChangePassword, FormProfile } from "../../components";
 import { useDeleteUser } from "../../hooks";
+import { useAuth } from "../../context/authContext";
 
 export const Profile = () => {
   const [changeRender, setChangeRender] = useState(true);
-  const [toggleRender, setToggleRender] = useState(false);
   const { setUser } = useAuth();
 
   //? -------- Cambio de contraseña con token
