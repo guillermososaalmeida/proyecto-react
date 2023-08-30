@@ -100,7 +100,7 @@ export const Login = () => {
 
             <Text>
               Forgot password?
-              <Link to="/forgotpassword">Reset password</Link>
+              <Link to="/forgotpassword/forgotpassword">Reset password</Link>
             </Text>
           </form>
         </Box>

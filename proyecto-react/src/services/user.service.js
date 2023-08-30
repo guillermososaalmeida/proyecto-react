@@ -41,3 +41,11 @@ export const deleteUserService = async () => {
     .then((res) => res)
     .catch((error) => error);
 };
+
+//! ------------------------------------ CAMBIO CONTRASEÑA SIN TOKEN-------------
+
+export const forgotPasswordUser = async (formData) => {
+  return APIuser.patch("/users/forgotpassword", formData)
+    .then((res) => res)
+    .catch((error) => error);
+};
