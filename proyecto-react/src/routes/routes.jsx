@@ -9,6 +9,7 @@ import {
   Profile,
   Register,
 } from "../pages/index.js";
+import { Protected, ProtectedCheckChildren } from "../components/index.js";
 
 export const router = createBrowserRouter([
   {
@@ -29,11 +30,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: (
+          <Protected>
+            <Profile />
+          </Protected>
+        ),
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <Protected>
+            <Dashboard />
+          </Protected>
+        ),
       },
       {
         path: "/forgotPassword",
@@ -41,7 +50,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/verifyCode",
-        element: <CheckCode />,
+        element: (
+          <ProtectedCheckChildren>
+            <CheckCode />
+          </ProtectedCheckChildren>
+        ),
       },
     ],
   },

@@ -16,7 +16,7 @@ export const useRegisterError = (res, setRegisterOk, setRes) => {
       showConfirmButton: false,
       timer: 1500,
     });
-    setRes({});
+    setRes(() => ({}));
   }
 
   //! ------------------- 409: user ya registrado
@@ -29,7 +29,7 @@ export const useRegisterError = (res, setRegisterOk, setRes) => {
       showConfirmButton: false,
       timer: 1500,
     });
-    setRes({});
+    setRes(() => ({}));
   }
   //! ------------------- La contraseña no esta en el formato correcto
   if (res?.response?.data?.includes("validation failed: password")) {
@@ -40,7 +40,7 @@ export const useRegisterError = (res, setRegisterOk, setRes) => {
       showConfirmButton: false,
       timer: 3000,
     });
-    setRes({});
+    setRes(() => ({}));
   }
 
   //! ------------------- cuando el userName ya existe
@@ -56,7 +56,7 @@ export const useRegisterError = (res, setRegisterOk, setRes) => {
       showConfirmButton: false,
       timer: 1500,
     });
-    setRes({});
+    setRes(() => ({}));
   }
 
   //! -------------------- 500 : internal server error
@@ -69,7 +69,7 @@ export const useRegisterError = (res, setRegisterOk, setRes) => {
       showConfirmButton: false,
       timer: 1500,
     });
-    setRes({});
+    setRes(() => ({}));
   }
 
   //! -------------------- 404: 'error, resend code'
@@ -84,6 +84,6 @@ export const useRegisterError = (res, setRegisterOk, setRes) => {
       showConfirmButton: false,
       timer: 1500,
     });
-    setRes({});
+    setRes(() => ({}));
   }
 };
