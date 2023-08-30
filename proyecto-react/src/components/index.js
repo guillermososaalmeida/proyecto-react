@@ -4,3 +4,5 @@ export * from "./Header/Header";
 export * from "./Sidebar/Sidebar";
 export * from "./ProtectedRoutes/Protected";
 export * from "./ProtectedRoutes/ProtectedCheckChildren";
+export * from "./FormProfile";
+export * from "./ChangePassword";

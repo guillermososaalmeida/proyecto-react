@@ -33,3 +33,11 @@ export const autologinUser = async (formData) => {
     .then((res) => res)
     .catch((error) => error);
 };
+
+//! -------------------------------- BPRRADP DEL USUARIO -------------------------
+
+export const deleteUserService = async () => {
+  return APIuser.delete("/users/")
+    .then((res) => res)
+    .catch((error) => error);
+};

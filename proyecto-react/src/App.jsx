@@ -1,9 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import { Footer, Header } from "./components";
+import { Footer, Sidebar } from "./components";
 import { AuthContextProvider } from "./context/authContext";
 import "./App.css";
-import Sidebar from "./components/Sidebar/Sidebar";
 
 const App = () => {
   return (
@@ -14,7 +13,6 @@ const App = () => {
             <Sidebar />
           </div>
           <div className="Container">
-            {" "}
             <main>
               <Outlet />
             </main>

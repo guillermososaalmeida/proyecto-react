@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+export const Sidebar = () => {
   return (
     <div className="SidebarContainer">
       <div className="Logo">
@@ -24,5 +24,3 @@ const Sidebar = () => {
     </div>
   );
 };
-
-export default Sidebar;

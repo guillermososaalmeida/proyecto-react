@@ -44,7 +44,7 @@ UserRoutes.patch(
 UserRoutes.patch("/toggleFavGame", [isAuth], toggleFavGame);
 UserRoutes.patch("/toggleFavPlatform", [isAuth], toggleFavPlatform);
 
-UserRoutes.delete("/", [isAuthAdmin], deleteUser);
+UserRoutes.delete("/", [isAuthAdmin], [isAuth], deleteUser);
 UserRoutes.patch("/addAcquiredGame/add", [isAuth], addAcquiredGame);
 UserRoutes.get("/get/pegi", [isAuth], getPegi);
 UserRoutes.get("/get/users/more/games", getBestUser);
