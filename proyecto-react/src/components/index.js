@@ -6,3 +6,4 @@ export * from "./ProtectedRoutes/Protected";
 export * from "./ProtectedRoutes/ProtectedCheckChildren";
 export * from "./FormProfile/FormProfile";
 export * from "./ChangePassword/ChangePassword";
+export * from "./FigureUser/FigureUser";

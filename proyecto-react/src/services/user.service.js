@@ -54,3 +54,26 @@ export const forgotPasswordUser = async (formData) => {
     .then((res) => res)
     .catch((error) => error);
 };
+
+//! ------------------------ CAMBIO CONTRASEÑA CUANDO  ESTÁS LOGGEADO-------------
+
+export const changePasswordUserToken = async (formData) => {
+  return APIuser.patch("/users/changepassword", formData, {
+    headers: {
+      Authorization: `Bearer ${updateToken()}`,
+    },
+  });
+};
+
+//! ------------------------------ UPDATE USER -----------------------
+
+export const updateUser = async (formData) => {
+  return APIuser.patch("/users/update/update", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${updateToken()}`,
+    },
+  })
+    .then((res) => res)
+    .catch((error) => error);
+};
