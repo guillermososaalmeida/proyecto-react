@@ -3,6 +3,7 @@ import App from "../App.jsx";
 import {
   CheckCode,
   Dashboard,
+  Detail,
   ForgotPassword,
   Home,
   Login,
@@ -54,6 +55,14 @@ export const router = createBrowserRouter([
           <ProtectedCheckChildren>
             <CheckCode />
           </ProtectedCheckChildren>
+        ),
+      },
+      {
+        path: "/gameDetail",
+        element: (
+          <Protected>
+            <Detail />
+          </Protected>
         ),
       },
     ],

@@ -6,3 +6,4 @@ export * from "./Home/Home";
 export * from "./ForgotPassword/ForgotPassword";
 export * from "./Dashboard/Dashboard";
 export * from "./CheckCode/CheckCode";
+export * from "./Details/Detail";

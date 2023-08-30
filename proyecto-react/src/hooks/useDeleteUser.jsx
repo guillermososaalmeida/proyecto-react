@@ -9,5 +9,25 @@ export const useDeleteUser = (setUser) => {
     confirmButtonColor: "rgb(73, 193, 162)",
     cancelButtonColor: "#d33",
     confirmButtonText: "YES",
-  }).then(async (result) => {});
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      const res = await deleteUserService();
+      switch (res.status) {
+        case 200:
+          Swal.fire({
+            icon: "success",
+            title: "Delete User",
+            text: "See you soon",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          setUser(() => null);
+          localStorage.removeItem("user");
+          break;
+
+        default:
+          break;
+      }
+    }
+  });
 };
