@@ -19,7 +19,8 @@ body {
 }
 
 main {
-  min-width: 50vw;
+  width: 80%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   gap: 2em;
@@ -31,13 +32,4 @@ main {
 .Sidebar {
   width: 20%;
   min-height: 100vh;
-}
-
-.Container {
-  display: flex;
-  width: 80%;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
