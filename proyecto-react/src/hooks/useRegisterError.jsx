@@ -52,7 +52,7 @@ export const useRegisterError = (res, setRegisterOk, setRes) => {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Sorry choose another name ❎",
+      text: "Please choose another name ❎",
       showConfirmButton: false,
       timer: 1500,
     });

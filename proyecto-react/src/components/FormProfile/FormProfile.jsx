@@ -1,5 +1,4 @@
 import "./FormProfile.css";
-
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 
 import { FigureUser } from "../FigureUser/FigureUser";
@@ -20,7 +19,8 @@ export const FormProfile = () => {
     name: user?.user,
   };
 
-  //! ------------ 1) La funcion que gestiona el formulario----
+  //? ------------ 1) La función que gestiona el formulario -------------------------------
+
   const formSubmit = (formData) => {
     Swal.fire({
       title: "Are you sure you want to change your data profile?",
@@ -54,10 +54,9 @@ export const FormProfile = () => {
     });
   };
 
-  //! -------------- 2 ) useEffect que gestiona la parte de la respuesta ------- customHook
+  //? -------------- 2 ) useEffect que gestiona la parte de la respuesta ------------- (customHook)
 
   useEffect(() => {
-    console.log(res);
     useUpdateError(res, setRes, setUser, logout);
   }, [res]);
 

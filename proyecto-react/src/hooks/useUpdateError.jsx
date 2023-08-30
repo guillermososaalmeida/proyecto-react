@@ -1,7 +1,7 @@
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 
 export const useUpdateError = (res, setRes, setUser, logout) => {
-  //!---------------------------------------> 200
+  //!--------------------- 200 -------------
   let contador;
   if (res?.data) {
     contador = 0;
@@ -36,14 +36,14 @@ export const useUpdateError = (res, setRes, setUser, logout) => {
       });
     }
   }
-  //! -------------------------------------> 404 general y el 500
+  //! ----------------------- 404 general y 500 ---------------------
 
   if (res?.response?.status == 500 || res?.response?.status == 404) {
     setRes(() => ({}));
     return Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Interval Server Error! Don't update user ❎ ",
+      text: "Interval Server Error! User not updated ❎ ",
       showConfirmButton: false,
       timer: 1500,
     });
@@ -54,7 +54,7 @@ export const useUpdateError = (res, setRes, setUser, logout) => {
       setRes(() => ({}));
       return Swal.fire({
         icon: "error",
-        title: `Error update data user ❌`,
+        title: `Error updating user data ❌`,
         showConfirmButton: false,
         timer: 1500,
       });
