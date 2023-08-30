@@ -8,7 +8,6 @@ import { Uploadfile } from "../../components";
 import { useRegisterError } from "../../hooks/useRegisterError";
 import { useAuth } from "../../context/authContext";
 import { registerUser } from "../../services/user.service";
-import { FormControl } from "@chakra-ui/react";
 
 export const Register = () => {
   const { setAllUser, bridgeData } = useAuth();
@@ -72,7 +71,6 @@ export const Register = () => {
     <>
       <div className="RegisterBody">
         <div className="form-wrap">
-          {" "}
           <h1>Sign Up</h1>
           <p>It’s free and only takes a minute.</p>
           <form onSubmit={handleSubmit(formSubmit)}>

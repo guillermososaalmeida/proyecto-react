@@ -24,7 +24,6 @@ const UserSchema = new mongoose.Schema(
     gender: {
       type: String,
       enum: ["mujer", "hombre", "no binarie", "otros"], //enumeracion de los diferentes valores que puede tener
-      required: true,
     },
     rol: {
       type: String,
