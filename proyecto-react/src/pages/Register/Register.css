@@ -13,6 +13,11 @@ body {
   line-height: 1.8;
 }
 
+.RegisterBody {
+  width: 500px;
+  margin: auto;
+}
+
 .parrafoLogin {
   margin-bottom: 40px;
 }
@@ -26,14 +31,21 @@ a {
 }
 
 .form-wrap {
-  margin-top: 2rem;
-  background: #f7fffa;
-  padding: 15px 25px 30px;
+  margin-top: 100px;
+  width: 500px;
+  background: #efefef;
+
+  padding: 20px 50px 50px 50px;
   color: #333;
   border-radius: 5px;
 }
 
-.form-wrap h1,
+.form-wrap h1 {
+  font-size: 40px;
+  text-align: center;
+  margin-top: 30px;
+}
+
 .form-wrap p {
   text-align: center;
 }
@@ -49,16 +61,22 @@ a {
 
 .form-wrap .form-group input {
   width: 100%;
+  height: 30px;
   padding: 10px;
   border: #ddd 1px solid;
+
   border-radius: 5px;
   font-family: inherit;
   font-size: inherit;
-  caret-color: #2f7a67;
-  border: solid 2px #49c1a371;
+  caret-color: #28c6ff;
+  border: solid 2px #9090908b;
 }
 
-.form-wrap .form-group input:focus {
+.form-wrap .form-group p {
+  text-align: left;
+  color: #9e9e9e;
+}
+s .form-wrap .form-group input:focus {
   outline-color: #49c1a2;
 }
 
@@ -66,10 +84,10 @@ a {
   width: 100%;
   padding: 10px;
   margin-top: 25px;
-  background: #2f7a67;
+  background: #28c6ff;
   color: #fff;
   cursor: pointer;
-  border: #2f7a67 1px solid;
+  border: #28c6ff 1px solid;
   border-radius: 5px;
   font-family: inherit;
   font-size: inherit;
@@ -114,25 +132,8 @@ input[type="radio"] {
   display: none;
 }
 
-.sexo {
-  display: flex;
-  flex-wrap: no-wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
-.sexo .hombre {
-  border-radius: 3px 0 0 3px;
-  color: black !important;
-}
-.sexo .mujer {
-  border-radius: 0 3px 3px 0;
-  color: black !important;
-}
-
 .label-radio {
-  background: #37a08e57;
+  background: #9090908b;
   color: #fff;
   padding: 10px;
   text-align: center;
@@ -140,7 +141,7 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + .label-radio {
-  background: #2f7a67;
+  background: #28c6ff;
   color: #fff !important;
 }
 
@@ -149,5 +150,5 @@ a {
 }
 
 .anchorCustom {
-  color: #276052;
+  color: #1091c0;
 }

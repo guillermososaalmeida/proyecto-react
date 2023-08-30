@@ -74,106 +74,98 @@ export const Register = () => {
   }
   return (
     <>
-      <div className="form-wrap">
-        <h1>Sign Up</h1>
-        <p>It’s free and only takes a minute.</p>
-        <form onSubmit={handleSubmit(formSubmit)}>
-          <div className="user_container form-group">
-            <input
-              className="input_user"
-              type="text"
-              id="name"
-              name="name"
-              autoComplete="false"
-              {...register("name", { required: true })}
-            />
-            <label htmlFor="custom-input" className="custom-placeholder">
-              username
-            </label>
-          </div>
-          <div className="password_container form-group">
-            <input
-              className="input_user"
-              type="password"
-              id="password"
-              name="password"
-              autoComplete="false"
-              {...register("password", { required: true })}
-            />
-            <label htmlFor="custom-input" className="custom-placeholder">
-              password
-            </label>
-          </div>
-
-          <div className="email_container form-group">
-            <input
-              className="input_user"
-              type="email"
-              id="email"
-              name="email"
-              autoComplete="false"
-              {...register("email", { required: true })}
-            />
-            <label htmlFor="custom-input" className="custom-placeholder">
-              email
-            </label>
-
-            <input
-              type="number"
-              id="year"
-              name="year"
-              {...register("year", { required: true })}
-            ></input>
-            <label>year</label>
-
-            <div className="sexo">
+      <div className="RegisterBody">
+        <div className="form-wrap">
+          {" "}
+          <h1>Sign Up</h1>
+          <p>It’s free and only takes a minute.</p>
+          <form onSubmit={handleSubmit(formSubmit)}>
+            <div className="user_container form-group">
+              <p>username</p>
+              <label
+                htmlFor="custom-input"
+                className="custom-placeholder"
+              ></label>
               <input
-                type="radio"
-                name="sexo"
-                id="hombre"
-                value="hombre"
-                {...register("gender")}
+                className="input_user"
+                type="text"
+                id="name"
+                name="name"
+                autoComplete="false"
+                {...register("name", { required: true })}
               />
-              <label htmlFor="hombre" className="label-radio hombre">
-                Hombre
-              </label>
-              <input
-                type="radio"
-                name="sexo"
-                id="mujer"
-                value="mujer"
-                {...register("gender")}
-              />
-              <label htmlFor="mujer" className="label-radio mujer">
-                Mujer
-              </label>
             </div>
-            <Uploadfile />
-          </div>
+            <div className="password_container form-group">
+              <p>password</p>
+              <label
+                htmlFor="custom-input"
+                className="custom-placeholder"
+              ></label>
+              <input
+                className="input_user"
+                type="password"
+                id="password"
+                name="password"
+                autoComplete="false"
+                {...register("password", { required: true })}
+              />
+            </div>
 
-          <div className="btn_container">
-            <button
-              className="btn"
-              type="submit"
-              disabled={send}
-              style={{ background: send ? "#49c1a388" : "#2f7a67" }}
-            >
-              Register
-            </button>
-          </div>
-          <p className="bottom-text">
-            <small>
-              By clicking the Sign Up button, you agree to our{" "}
-              <Link className="anchorCustom">Terms & Conditions</Link> and{" "}
-              <Link className="anchorCustom">Privacy Policy</Link>.
-            </small>
+            <div className="email_container form-group">
+              <p>email</p>
+              <label
+                htmlFor="custom-input"
+                className="custom-placeholder"
+              ></label>
+              <input
+                className="input_user"
+                type="email"
+                id="email"
+                name="email"
+                autoComplete="false"
+                {...register("email", { required: true })}
+              />
+            </div>
+            <div className="year_container form-group">
+              <p>year</p>
+              <label
+                htmlFor="custom-input"
+                className="custom-placeholder"
+              ></label>
+              <input
+                type="number"
+                id="year"
+                name="year"
+                {...register("year", { required: true })}
+              ></input>
+
+              <Uploadfile />
+            </div>
+
+            <div className="btn_container">
+              <button
+                className="btn"
+                type="submit"
+                disabled={send}
+                style={{ background: send ? "#49c1a388" : "#2f7a67" }}
+              >
+                Register
+              </button>
+            </div>
+            <p className="bottom-text">
+              <small>
+                By clicking the Sign Up button, you agree to our{" "}
+                <Link className="anchorCustom">Terms & Conditions</Link> and{" "}
+                <Link className="anchorCustom">Privacy Policy</Link>.
+              </small>
+            </p>
+          </form>
+        </div>
+        <div className="footerForm">
+          <p className="parrafoLogin">
+            Already have an account? <Link to="/login">Login Here</Link>
           </p>
-        </form>
-      </div>
-      <div className="footerForm">
-        <p className="parrafoLogin">
-          Already have an account? <Link to="/login">Login Here</Link>
-        </p>
+        </div>
       </div>
     </>
   );

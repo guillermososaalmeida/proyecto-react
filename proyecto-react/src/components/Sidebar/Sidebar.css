@@ -1,0 +1,35 @@
+.SidebarContainer {
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(214, 214, 214);
+}
+
+.Logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.Logo img {
+  width: 200px;
+}
+
+.SidebarLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #28c6ff;
+}
+
+.SidebarItem {
+  background-color: #ededed;
+  height: 100px;
+  width: 200px;
+  margin: 10px;
+  border-radius: 30px;
+  border-width: 2px;
+  border-color: #28c6ff;
+}

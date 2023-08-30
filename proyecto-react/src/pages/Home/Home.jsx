@@ -15,7 +15,7 @@ export const Home = () => {
       <Center>
         <Text fontSize="6xl">
           Let's go to
-          <Link color="pink.500" href="/register">
+          <Link color="blue" href="/register">
             REGISTER
           </Link>
         </Text>

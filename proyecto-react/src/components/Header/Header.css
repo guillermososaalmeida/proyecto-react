@@ -48,12 +48,6 @@ nav {
   gap: 1rem;
 }
 
-.whiteContainer {
-  width: 100vw;
-  height: 1vh;
-  background-color: white;
-}
-
 .iconLogout {
   transform: scale(0.8);
   width: 70px;
