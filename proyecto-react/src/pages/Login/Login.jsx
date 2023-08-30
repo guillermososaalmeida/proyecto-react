@@ -9,12 +9,11 @@ import {
   Box,
   Input,
   Button,
-  Center,
   Text,
 } from "@chakra-ui/react";
 import { login } from "../../services/user.service";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useLoginError } from "../../hooks/useLoginError";
 import { useAuth } from "../../context/authContext";
 
@@ -22,6 +21,7 @@ export const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [loggedUser, setLoggedUser] = useState({});
   const [loginOk, setLoginOk] = useState(false);
+
   const { userLogin, setUser } = useAuth();
 
   const { handleSubmit, register } = useForm();
@@ -44,6 +44,14 @@ export const Login = () => {
   }, []);
 
   //!GESTIONAR EL REDIRECT SI SE LOGEA O NO
+
+  if (loginOk) {
+    if (loggedUser?.data?.user.check == false) {
+      return <Navigate to="/verifyCode" />;
+    } else {
+      return <Navigate to="/dashboard" />;
+    }
+  }
 
   return (
     <>
@@ -93,6 +101,7 @@ export const Login = () => {
                 minW="2xs"
                 mt={4}
                 size="lg"
+                isLoading={isLoading}
               >
                 Login
               </Button>
