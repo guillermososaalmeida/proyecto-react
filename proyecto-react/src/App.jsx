@@ -12,12 +12,9 @@ const App = () => {
           <div className="Sidebar">
             <Sidebar />
           </div>
-          <div className="Container">
-            <main>
-              <Outlet />
-            </main>
-            <Footer />
-          </div>
+          <main>
+            <Outlet />
+          </main>
         </AuthContextProvider>
       </ChakraProvider>
     </>
