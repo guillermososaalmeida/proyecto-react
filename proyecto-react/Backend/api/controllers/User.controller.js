@@ -62,7 +62,7 @@ const register = async (req, res, next) => {
                 confirmationCode: "error, resend code",
               });
             }
-          }, 1400);
+          }, 3000);
         }
       } catch (error) {
         return res.status(404).json(error.message);
