@@ -79,3 +79,11 @@ export const updateUser = async (formData) => {
     .then((res) => res)
     .catch((error) => error);
 };
+
+//! ------------------- GET USER BY ID -----------------
+
+export const getUserById = async (id) => {
+  return APIuser.get(`/users/${id}`)
+    .then((res) => res.data)
+    .catch((error) => error);
+};

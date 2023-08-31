@@ -422,7 +422,9 @@ const getById = async (req, res, next) => {
     const userById = await User.findById(id);
 
     if (userById) {
-      return res.status(200).json({ data: userById });
+      return res
+        .status(200)
+        .json(await User.findById(id).populate("acquired.gameId"));
     } else {
       res.status(404).json("user not found");
     }
@@ -766,11 +768,7 @@ const addAcquiredGame = async (req, res, next) => {
         setTimeout(async () => {
           return res
             .status(200)
-            .json(
-              await User.findById(_id)
-                .populate("acquired")
-                .populate({ path: "gameId" }),
-            );
+            .json(await User.findById(_id).populate("acquired.gameId"));
         }, 1400);
       } else {
         return res
