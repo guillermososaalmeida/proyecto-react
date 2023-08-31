@@ -766,7 +766,11 @@ const addAcquiredGame = async (req, res, next) => {
         setTimeout(async () => {
           return res
             .status(200)
-            .json(await User.findById(_id).populate("acquired"));
+            .json(
+              await User.findById(_id)
+                .populate("acquired")
+                .populate({ path: "gameId" }),
+            );
         }, 1400);
       } else {
         return res
