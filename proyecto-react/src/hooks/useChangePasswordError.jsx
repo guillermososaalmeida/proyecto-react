@@ -18,15 +18,29 @@ export const useChangePasswordError = (res, setRes, setUser) => {
     setRes(() => ({}));
     return Swal.fire({
       icon: "error",
-      title: "Interval server error ❎.",
+      title: "Internal server error ❎.",
       text: "Please, try again",
       showConfirmButton: false,
       timer: 2500,
     });
   }
 
+  //! -----------------404: general
+  if (res?.response?.status == 404) {
+    console.log("password ❌");
+
+    setRes(() => ({}));
+    return Swal.fire({
+      icon: "error",
+      title: "Internal server error ❎.",
+      text: "Please, try again",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+  }
+
   //! -----------------404: 'password dont match'
-  if (res?.response?.data?.includes("password dont match")) {
+  if (res?.response?.data.includes("password dont match")) {
     console.log("password ❌");
     setRes(() => ({}));
     return Swal.fire({
@@ -38,25 +52,13 @@ export const useChangePasswordError = (res, setRes, setUser) => {
     });
   }
 
-  //! -----------------404: general
-  if (res?.response?.status == 404) {
-    setRes(() => ({}));
-    return Swal.fire({
-      icon: "error",
-      title: "Interval server error ❎.",
-      text: "Please, try again",
-      showConfirmButton: false,
-      timer: 3000,
-    });
-  }
-
-  //! -----------------500: interval server error
+  //! -----------------500: Internal server error
   if (res?.response?.status == 500) {
     setRes(() => ({}));
     return Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Interval Server Error ❎!",
+      text: "Internal Server Error ❎!",
       showConfirmButton: false,
       timer: 1500,
     });

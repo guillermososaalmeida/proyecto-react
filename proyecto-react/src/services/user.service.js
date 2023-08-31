@@ -62,7 +62,9 @@ export const changePasswordUserToken = async (formData) => {
     headers: {
       Authorization: `Bearer ${updateToken()}`,
     },
-  });
+  })
+    .then((res) => res)
+    .catch((error) => error);
 };
 
 //! ------------------------------ UPDATE USER -----------------------
