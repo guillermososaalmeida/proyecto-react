@@ -15,7 +15,7 @@ const {
 
 const GameRoutes = require("express").Router();
 
-GameRoutes.post("/", [isAuthAdmin], uploadGame.single("image"), postGame);
+GameRoutes.post("/", uploadGame.single("image"), postGame);
 GameRoutes.get("/:id", getById);
 GameRoutes.get("/getByName/name", getByName);
 GameRoutes.get("/get/all/skip", getSkip);

@@ -4,7 +4,7 @@ import { useAuth } from "../../context/authContext";
 import { useAcquired } from "../../hooks/useAcquired";
 
 import "./Dashboard.css";
-import { Card, Text } from "@chakra-ui/react";
+import { Card, Center, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
 export const Dashboard = () => {
   const [userData, setUserData] = useState({});
@@ -22,14 +22,26 @@ export const Dashboard = () => {
   return (
     <>
       <Header />
-
-      {userData?.acquired?.map((game) => (
-        <Card>
-          <Text>
-            {game?.gameId?.name} || {game?.gameId?.genre}
-          </Text>
-        </Card>
-      ))}
+      <Heading p="5">Library</Heading>
+      <Flex gap="10" p="5">
+        {userData?.acquired?.map(({ gameId }) => (
+          <Card key={gameId._id} borderRadius="15">
+            <Center flexDir="column">
+              <Image
+                w="3xs"
+                h="2xs"
+                objectFit="cover"
+                src={gameId.image}
+                alt={gameId.name}
+                borderRadius="15"
+              />
+              <Text p="5">
+                {gameId?.name} || {gameId?.genre}
+              </Text>
+            </Center>
+          </Card>
+        ))}
+      </Flex>
     </>
   );
 };
