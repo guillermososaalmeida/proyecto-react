@@ -25,6 +25,19 @@ export const useChangePasswordError = (res, setRes, setUser) => {
     });
   }
 
+  //! -----------------404: 'password dont match'
+  if (res?.response?.data?.includes("passwords don't match")) {
+    console.log("password ❌");
+    setRes(() => ({}));
+    return Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Old password don't match,  ❎ Try again, please",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+  }
+
   //! -----------------404: general
   if (res?.response?.status == 404) {
     console.log("password ❌");
@@ -34,19 +47,6 @@ export const useChangePasswordError = (res, setRes, setUser) => {
       icon: "error",
       title: "Internal server error ❎.",
       text: "Please, try again",
-      showConfirmButton: false,
-      timer: 3000,
-    });
-  }
-
-  //! -----------------404: 'password dont match'
-  if (res?.response?.data.includes("password dont match")) {
-    console.log("password ❌");
-    setRes(() => ({}));
-    return Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Old password don't match,  ❎ Try again, please",
       showConfirmButton: false,
       timer: 3000,
     });
