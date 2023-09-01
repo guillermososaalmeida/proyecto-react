@@ -1,4 +1,4 @@
-import "./Home.css";
+import "./Welcome.css";
 import { Heading } from "@chakra-ui/react";
 import { Center } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/react";

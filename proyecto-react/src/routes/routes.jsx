@@ -5,10 +5,11 @@ import {
   Dashboard,
   Detail,
   ForgotPassword,
-  Home,
+  Welcome,
   Login,
   Profile,
   Register,
+  Home,
 } from "../pages/index.js";
 import { Protected, ProtectedCheckChildren } from "../components/index.js";
 
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <Welcome />,
+      },
+      {
+        path: "/Home",
         element: <Home />,
       },
       {
