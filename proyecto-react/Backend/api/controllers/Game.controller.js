@@ -61,7 +61,7 @@ const getById = async (req, res, next) => {
 //! GET BY NAME
 const getByName = async (req, res, next) => {
   try {
-    const { name } = req.body;
+    const { name = "" } = req.query;
     const gameByName = await Game.find();
     const filterGame = gameByName.filter((element) =>
       element.name.toLowerCase().includes(name.toLowerCase()),
@@ -270,7 +270,7 @@ const getPopularGames = async (req, res, next) => {
 //! GET BY GENRE
 const getByGenre = async (req, res, next) => {
   try {
-    const { genre } = req.body;
+    const { genre } = req.query;
     const gameByGenre = await Game.find();
     const filterGame = gameByGenre.filter((element) =>
       element.genre.toLowerCase().includes(genre.toLowerCase()),

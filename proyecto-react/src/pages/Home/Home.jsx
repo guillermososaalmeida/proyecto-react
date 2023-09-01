@@ -1,28 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Stack,
   Flex,
   Heading,
-  Container,
   Card,
   Center,
   Text,
   Image,
+  HStack,
 } from "@chakra-ui/react";
 import { Header, Sidebar } from "../../components";
-import { useAllGames } from "../../hooks/useAllGames";
+import { useGetGamesFromSearchParams } from "../../hooks/useGetGames";
 
 export const Home = () => {
-  const [gameData, setGameData] = useState();
-
-  useEffect(() => {
-    const getData = async () => {
-      const gameDataResponse = await useAllGames();
-      setGameData(gameDataResponse);
-      console.log("gameDataResponse", gameDataResponse);
-    };
-    getData();
-  }, []);
+  const gameData = useGetGamesFromSearchParams();
 
   return (
     <>
@@ -37,9 +28,9 @@ export const Home = () => {
                 All games here!!
               </Heading>
             </Stack>
-            <Container>
+            <HStack flexWrap="wrap" gap="10" p="5">
               {gameData?.map((game) => (
-                <Card key={game} borderRadius="15">
+                <Card key={game._id} borderRadius="15">
                   <Center flexDir="column">
                     <Image
                       w="3xs"
@@ -55,7 +46,7 @@ export const Home = () => {
                   </Center>
                 </Card>
               ))}
-            </Container>
+            </HStack>
           </Flex>
         </Flex>
       </Flex>

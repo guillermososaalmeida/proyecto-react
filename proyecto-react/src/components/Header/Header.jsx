@@ -9,16 +9,21 @@ import {
 import { SearchIcon } from "@chakra-ui/icons";
 import { useAuth } from "../../context/authContext";
 import "./Header.css";
-import { Link } from "react-router-dom";
-
-const handleEnter = (e) => {
-  if (e.key === "Enter") {
-    console.log("enter");
-  }
-};
+import { Link, useNavigate } from "react-router-dom";
+import { useGetByName } from "../../hooks/useGetByName";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleEnter = (e) => {
+    if (e.key === "Enter") {
+      const name = e.target.value;
+      name ? navigate(`/home?name=${name}`) : navigate("/home");
+    }
+  };
+
   return (
     <>
       <HStack p="5">

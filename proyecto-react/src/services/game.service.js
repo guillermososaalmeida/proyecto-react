@@ -4,3 +4,9 @@ export const getAllGames = async () => {
     .then((res) => res.data.data)
     .catch((error) => error);
 };
+
+export const getGameByName = async (name) => {
+  return APIuser.get(`/games/getByName/name?name=${name}`)
+    .then((res) => res.data.data)
+    .catch((error) => error);
+};

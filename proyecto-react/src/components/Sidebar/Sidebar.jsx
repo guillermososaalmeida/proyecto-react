@@ -8,7 +8,7 @@ export const Sidebar = () => {
         <img src="https://res.cloudinary.com/drt000pht/image/upload/v1693565652/logo_bwjssr.png"></img>
       </div>
       <div className="SidebarLinks">
-        <NavLink className="SidebarItem" to="/Home">
+        <NavLink className="SidebarItem" to="/home">
           Home
         </NavLink>
         <NavLink className="SidebarItem" to="/profile">
