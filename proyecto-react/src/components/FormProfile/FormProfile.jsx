@@ -8,6 +8,7 @@ import { useAuth } from "../../context/authContext";
 import { useForm } from "react-hook-form";
 import { updateUser } from "../../services/user.service";
 import { useUpdateError } from "../../hooks";
+import { Sidebar } from "../Sidebar/Sidebar";
 
 export const FormProfile = () => {
   const { user, setUser, logout } = useAuth();
@@ -62,15 +63,19 @@ export const FormProfile = () => {
 
   return (
     <>
+      <div className="Sidebar">
+        <Sidebar />
+      </div>
       <div className="containerProfile">
         <div className="containerDataNoChange">
           <FigureUser user={user} />
         </div>
         <div className="form-wrap formProfile">
-          <h1>Change your data profile ♻</h1>
-          <p>Please, enter your new data profile</p>
+          <h1>Edit Profile</h1>
+          <p>Please, enter your new data</p>
           <form onSubmit={handleSubmit(formSubmit)}>
             <div className="user_container form-group">
+              <p>username</p>
               <input
                 className="input_user"
                 type="text"
@@ -81,9 +86,10 @@ export const FormProfile = () => {
                 defaultValue={defaultData?.name}
                 {...register("name")}
               />
-              <label htmlFor="custom-input" className="custom-placeholder">
-                username
-              </label>
+              <label
+                htmlFor="custom-input"
+                className="custom-placeholder"
+              ></label>
             </div>
             <Uploadfile />
             <div className="btn_container">
@@ -91,9 +97,9 @@ export const FormProfile = () => {
                 className="btn"
                 type="submit"
                 disabled={send}
-                style={{ background: send ? "#49c1a388" : "#49c1a2" }}
+                style={{ background: send ? "28c6ff88" : "#28c6ff" }}
               >
-                CHANGE DATA PROFILE
+                SUMMIT CHANGES
               </button>
             </div>
           </form>

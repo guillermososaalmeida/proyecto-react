@@ -9,10 +9,43 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #2f7a67;
   max-width: 1000px;
   margin-top: 2rem;
   border-radius: 20px;
+
+  background: rgba(255, 255, 255, 1);
+  background: -moz-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(246, 246, 246, 1) 27%,
+    rgba(171, 171, 171, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(246, 246, 246, 1) 27%,
+    rgba(171, 171, 171, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(246, 246, 246, 1) 27%,
+    rgba(171, 171, 171, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(246, 246, 246, 1) 27%,
+    rgba(171, 171, 171, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(246, 246, 246, 1) 27%,
+    rgba(171, 171, 171, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ababab', GradientType=0 );
 }
 
 .formProfile {

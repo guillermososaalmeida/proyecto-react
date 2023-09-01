@@ -8,7 +8,7 @@ export const Sidebar = () => {
         <img src="https://i.imgur.com/tgd6cyW.png"></img>
       </div>
       <div className="SidebarLinks">
-        <NavLink className="SidebarItem" to="">
+        <NavLink className="SidebarItem" to="/">
           Home
         </NavLink>
         <NavLink className="SidebarItem" to="/profile">

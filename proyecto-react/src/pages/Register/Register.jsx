@@ -141,15 +141,15 @@ export const Register = () => {
                 className="btn"
                 type="submit"
                 disabled={send}
-                style={{ background: send ? "#49c1a388" : "#2f7a67" }}
+                style={{ background: send ? "28c6ff88" : "#28c6ff" }}
               >
                 Register
               </button>
             </div>
             <p className="bottom-text">
               <small>
-                By clicking the Sign Up button, you agree to our{" "}
-                <Link className="anchorCustom">Terms & Conditions</Link> and{" "}
+                By clicking the Sign Up button, you agree to our
+                <Link className="anchorCustom">Terms & Conditions</Link> and
                 <Link className="anchorCustom">Privacy Policy</Link>.
               </small>
             </p>

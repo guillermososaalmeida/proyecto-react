@@ -9,9 +9,6 @@ const App = () => {
     <>
       <ChakraProvider>
         <AuthContextProvider>
-          <div className="Sidebar">
-            <Sidebar />
-          </div>
           <main>
             <Outlet />
           </main>
