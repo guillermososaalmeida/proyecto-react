@@ -63,9 +63,8 @@ export const FormProfile = () => {
 
   return (
     <>
-      <div className="Sidebar">
-        <Sidebar />
-      </div>
+      {/* <div className="Sidebar"> */}
+      {/* </div> */}
       <div className="containerProfile">
         <div className="containerDataNoChange">
           <FigureUser user={user} />

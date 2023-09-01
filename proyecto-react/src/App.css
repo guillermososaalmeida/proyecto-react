@@ -28,8 +28,3 @@ main {
   flex-direction: column;
   flex: 1;
 }
-
-.Sidebar {
-  width: 20%;
-  min-height: 100vh;
-}

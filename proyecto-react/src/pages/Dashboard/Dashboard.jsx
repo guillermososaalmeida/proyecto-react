@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Header } from "../../components";
+import { Header, Sidebar } from "../../components";
 import { useAuth } from "../../context/authContext";
 import { useAcquired } from "../../hooks/useAcquired";
 
@@ -21,26 +21,31 @@ export const Dashboard = () => {
 
   return (
     <>
-      <Header />
-      <Heading p="5">Library</Heading>
-      <Flex gap="10" p="5">
-        {userData?.acquired?.map(({ gameId }) => (
-          <Card key={gameId._id} borderRadius="15">
-            <Center flexDir="column">
-              <Image
-                w="3xs"
-                h="2xs"
-                objectFit="cover"
-                src={gameId.image}
-                alt={gameId.name}
-                borderRadius="15"
-              />
-              <Text p="5">
-                {gameId?.name} || {gameId?.genre}
-              </Text>
-            </Center>
-          </Card>
-        ))}
+      <Flex>
+        <Sidebar />
+        <Flex direction="column" w="80vw">
+          <Header />
+          <Heading p="5">Library</Heading>
+          <Flex gap="10" p="5">
+            {userData?.acquired?.map(({ gameId }) => (
+              <Card key={gameId._id} borderRadius="15">
+                <Center flexDir="column">
+                  <Image
+                    w="3xs"
+                    h="2xs"
+                    objectFit="cover"
+                    src={gameId.image}
+                    alt={gameId.name}
+                    borderRadius="15"
+                  />
+                  <Text p="5">
+                    {gameId?.name} || {gameId?.genre}
+                  </Text>
+                </Center>
+              </Card>
+            ))}
+          </Flex>
+        </Flex>
       </Flex>
     </>
   );

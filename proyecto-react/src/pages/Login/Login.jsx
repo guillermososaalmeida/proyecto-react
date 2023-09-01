@@ -55,7 +55,12 @@ export const Login = () => {
 
   return (
     <>
-      <Flex width="full" align="center" justifyContent="center">
+      <Flex
+        width="full"
+        align="center"
+        justifyContent="center"
+        direction="column"
+      >
         <Box
           p="8"
           maxWidth="500px"

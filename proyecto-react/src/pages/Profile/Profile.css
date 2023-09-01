@@ -23,3 +23,7 @@
 .iconDeleteUser {
   border-radius: 50%;
 }
+
+.profileContainer {
+  display: flex;
+}

@@ -21,7 +21,7 @@ export const Header = () => {
   const { user } = useAuth();
   return (
     <>
-      <HStack>
+      <HStack p="5">
         <InputGroup>
           <InputLeftElement pointerEvents="none" pl="10" pt="10">
             <SearchIcon color="gray.300" />
@@ -43,12 +43,13 @@ export const Header = () => {
             onKeyDown={handleEnter}
           />
         </InputGroup>
-        <Button>Wish List</Button>
-        <Button>My platforms</Button>
-
-        <Link to="/profile">
-          <Avatar src={user.image} />
-        </Link>
+        <HStack>
+          <Button>Wish List</Button>
+          <Button>My platforms</Button>
+          <Link to="/profile">
+            <Avatar src={user.image} />
+          </Link>
+        </HStack>
       </HStack>
     </>
   );
