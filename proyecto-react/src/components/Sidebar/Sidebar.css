@@ -1,10 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Unica+One");
-
 .SidebarContainer {
   height: 100vh;
   width: 20vw;
   background-color: rgb(214, 214, 214);
-  background-image: url(https://i.blogs.es/ff4f41/elqk-v1wmauw09m/1366_2000.jpg);
+  background-image: url(https://wallpaperaccess.com/full/1897261.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,13 +26,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #28c6ff;
-  font-family: Unica One;
+  color: #5db5ae;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 30px;
 }
 
 .SidebarItem {
-  background-color: #edededcf;
+  background-color: #edededed;
   height: 100px;
   width: 100%;
   margin: 10px;

@@ -17,7 +17,7 @@
 }
 
 .uploader.hover {
-  border: 2px solid #1091c0;
+  border: 2px solid #5db5ae;
   box-shadow: inset 0 0 0 6px #eee;
 }
 #start > i.fa {
@@ -58,7 +58,7 @@ i.fa {
 }
 
 #file-drag:hover {
-  border-color: #28c6ff;
+  border-color: #5db5ae;
 }
 
 .uploader.btn {
