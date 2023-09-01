@@ -14,7 +14,7 @@ export const Sidebar = () => {
         <NavLink className="SidebarItem" to="/profile">
           Profile
         </NavLink>
-        <NavLink className="SidebarItem" to="/">
+        <NavLink className="SidebarItem" to="/dashboard">
           Library
         </NavLink>
         <NavLink className="SidebarItem" to="/">
