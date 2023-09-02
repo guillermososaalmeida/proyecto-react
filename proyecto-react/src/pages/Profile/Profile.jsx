@@ -8,6 +8,7 @@ import {
   Tab,
   TabPanel,
   Text,
+  Center,
 } from "@chakra-ui/react";
 import { useDeleteUser } from "../../hooks";
 import { useAuth } from "../../context/authContext";
@@ -26,7 +27,7 @@ export const Profile = () => {
     <>
       <div className="profileContainer">
         <Sidebar />
-        <Tabs isFitted variant="enclosed" size="lg">
+        <Tabs isFitted variant="enclosed" size="lg" w="80vw">
           <TabList mb="1em">
             <Tab flexDir="column">
               <img
@@ -57,10 +58,14 @@ export const Profile = () => {
           </TabList>
           <TabPanels mt="-5">
             <TabPanel>
-              <FormProfile />
+              <Center>
+                <FormProfile />
+              </Center>
             </TabPanel>
             <TabPanel>
-              <ChangePassword />
+              <Center>
+                <ChangePassword />
+              </Center>
             </TabPanel>
           </TabPanels>
         </Tabs>

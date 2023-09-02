@@ -10,3 +10,9 @@ export const getGameByName = async (name) => {
     .then((res) => res.data.data)
     .catch((error) => error);
 };
+
+export const getGameById = async (id) => {
+  return APIuser.get(`/games/${id}`)
+    .then((res) => res.data.data)
+    .catch((error) => error);
+};

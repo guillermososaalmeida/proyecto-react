@@ -27,6 +27,14 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/home/detail/:id",
+        element: (
+          <Protected>
+            <Detail />
+          </Protected>
+        ),
+      },
+      {
         path: "/register",
         element: <Register />,
       },

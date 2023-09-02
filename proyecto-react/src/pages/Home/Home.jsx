@@ -8,12 +8,16 @@ import {
   Text,
   Image,
   HStack,
+  ScaleFade,
 } from "@chakra-ui/react";
 import { Header, Sidebar } from "../../components";
 import { useGetGamesFromSearchParams } from "../../hooks/useGetGames";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const gameData = useGetGamesFromSearchParams();
+
+  const handleClickToDetail = () => {};
 
   return (
     <>
@@ -40,9 +44,10 @@ export const Home = () => {
                       alt={game.name}
                       borderRadius="15"
                     />
-                    <Text p="5">
+                    <Link to={`/home/detail/${game._id}`}>
                       {game?.name} || {game?.genre}
-                    </Text>
+                    </Link>
+                    <Text p="5"></Text>
                   </Center>
                 </Card>
               ))}
