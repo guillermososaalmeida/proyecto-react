@@ -39,6 +39,10 @@ a {
   text-decoration: none;
 }
 
+form {
+  width: 100%;
+}
+
 .form-wrap {
   width: 25vw;
   height: 90%;
@@ -47,7 +51,7 @@ a {
   align-items: center;
   align-content: center;
   flex-direction: column;
-  padding: 20px 20px 20px 20px;
+  padding: 35px;
   color: #333;
 
   background: rgba(255, 255, 255, 1);
