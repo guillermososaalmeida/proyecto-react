@@ -4,7 +4,7 @@ import "./Register.css";
 import { useEffect, useState } from "react";
 
 import { Link, Navigate } from "react-router-dom";
-import { Uploadfile } from "../../components";
+import { HeaderRegister, Uploadfile } from "../../components";
 import { useRegisterError } from "../../hooks/useRegisterError";
 import { useAuth } from "../../context/authContext";
 import { registerUser } from "../../services/user.service";
@@ -70,6 +70,7 @@ export const Register = () => {
   return (
     <>
       <div className="RegisterBody">
+        <HeaderRegister />
         <div className="form-wrap">
           <h1>Sign Up</h1>
           <p>It’s free and only takes a minute.</p>
@@ -154,11 +155,6 @@ export const Register = () => {
               </small>
             </p>
           </form>
-        </div>
-        <div className="footerForm">
-          <p className="parrafoLogin">
-            Already have an account? <Link to="/login">Login Here</Link>
-          </p>
         </div>
       </div>
     </>

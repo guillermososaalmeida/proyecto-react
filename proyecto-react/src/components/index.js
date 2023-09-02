@@ -7,3 +7,6 @@ export * from "./ProtectedRoutes/ProtectedCheckChildren";
 export * from "./FormProfile/FormProfile";
 export * from "./ChangePassword/ChangePassword";
 export * from "./FigureUser/FigureUser";
+export * from "./Header Login/HeaderLogin";
+export * from "./Header Register/HeaderRegister";
+export * from "./HeaderChangePassword/HeaderChangePassword";

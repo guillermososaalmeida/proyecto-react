@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import {
-  FormControl,
-  FormLabel,
-  Flex,
-  FormHelperText,
-  Heading,
-  Box,
-  Input,
-  Button,
-  Text,
-} from "@chakra-ui/react";
 import { login } from "../../services/user.service";
 import "./Login.css";
 import { Link, Navigate } from "react-router-dom";
 import { useLoginError } from "../../hooks/useLoginError";
 import { useAuth } from "../../context/authContext";
+import { HeaderLogin } from "../../components";
 
 export const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -55,74 +45,55 @@ export const Login = () => {
 
   return (
     <>
-      <Flex
-        width="full"
-        align="center"
-        justifyContent="center"
-        direction="column"
-      >
-        <Box
-          p="8"
-          maxWidth="500px"
-          borderWidth={1}
-          borderRadius={8}
-          boxShadow="lg"
-          color={"#c3ef3cff"}
-        >
-          <Box textAlign="center">
-            <Heading as="h1" size="4xl">
-              Login
-            </Heading>
-          </Box>
+      <div className="LoginBody">
+        <HeaderLogin />
+        <div className="form-wrap">
+          <h1>Login</h1>
+
           <form onSubmit={handleSubmit(formSubmit)}>
-            <FormControl isRequired mt={10}>
-              <label>
-                <FormLabel>Email</FormLabel>
-                <Input
-                  id="emailInputLogin"
-                  size="lg"
-                  type="email"
-                  placeholder="Email"
-                  {...register("email", {
-                    minLength: 2,
-                  })}
-                />
-                <FormHelperText>We'll never share your email.</FormHelperText>
-              </label>
-              <label>
-                <FormLabel>Password</FormLabel>
-                <Input
-                  id="passwordInputLogin"
-                  type="password"
-                  placeholder="Password"
-                  {...register("password", {})}
-                  size="lg"
-                />
-              </label>
-              <Button
-                colorScheme="pink"
-                variant="outline"
-                type="submit"
-                minW="2xs"
-                mt={4}
-                size="lg"
-                isLoading={isLoading}
-              >
+            <div className="email_container form-group">
+              <p>email</p>
+              <label
+                htmlFor="custom-input"
+                className="custom-placeholder"
+              ></label>
+              <input
+                className="input_user"
+                type="email"
+                id="email"
+                name="email"
+                autoComplete="false"
+                {...register("email", {})}
+              />
+            </div>
+            <div className="password_container form-group">
+              <p>password</p>
+              <label
+                htmlFor="custom-input"
+                className="custom-placeholder"
+              ></label>
+
+              <input
+                className="input_user"
+                type="password"
+                id="password"
+                name="password"
+                autoComplete="false"
+                {...register("password", {})}
+              />
+            </div>
+            <div className="btn_container">
+              <button className="btn" type="submit">
                 Login
-              </Button>
-            </FormControl>
-
-            <Text>
-              Forgot password?
-              <Link to="/forgotpassword/forgotpassword">Reset password</Link>
-            </Text>
+              </button>
+            </div>
           </form>
-        </Box>
-
-        <p>
-          Are you not registered? <Link to="/register">Register Here</Link>
-        </p>
-      </Flex>
+          <p>
+            Forgot password?
+            <Link to="/forgotpassword/forgotpassword">Reset password</Link>
+          </p>
+        </div>
+      </div>
     </>
   );
 };

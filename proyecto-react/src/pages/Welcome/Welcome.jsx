@@ -1,24 +1,18 @@
 import "./Welcome.css";
-import { Heading } from "@chakra-ui/react";
-import { Center } from "@chakra-ui/react";
-import { Link } from "@chakra-ui/react";
-import { Text } from "@chakra-ui/react";
+import { Link, HStack } from "@chakra-ui/react";
+
+import { useNavigate } from "react-router-dom";
 
 export const Welcome = () => {
+  const navigate = useNavigate();
+
   return (
     <>
-      <Center>
-        <Heading>Welcome to my page!! 🪄🪄</Heading>
-      </Center>
-
-      <Center>
-        <Text fontSize="6xl">
-          Let's go to
-          <Link color="blue" href="/register">
-            REGISTER
-          </Link>
-        </Text>
-      </Center>
+      <div className="welcomeBody">
+        <div className="HeaderWelcomeContainer">
+          <button className="btn">Register</button>
+        </div>
+      </div>
     </>
   );
 };

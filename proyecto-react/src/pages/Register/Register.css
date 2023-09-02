@@ -17,12 +17,24 @@ body {
   background-color: rgb(255, 255, 255);
   margin: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-image: url(https://wallpaperaccess.com/full/4382084.jpg);
   background-size: cover;
-
   background-repeat: no-repeat;
   background-blend-mode: darken;
+  height: 100%;
+}
+
+.parrafoLogin {
+  margin-bottom: 40px;
+}
+
+#imagen {
+  display: block;
+}
+
+a {
+  text-decoration: none;
 }
 
 .parrafoLogin {
@@ -38,8 +50,8 @@ a {
 }
 
 .form-wrap {
-  width: 20vw;
-  height: 100vh;
+  width: 25vw;
+  height: 90%;
   background: #efefef;
   display: flex;
   align-items: center;
@@ -157,6 +169,9 @@ input[type="radio"] {
 input[type="radio"]:checked + .label-radio {
   background: #5db5ae;
   color: #fff !important;
+}
+input:focus-visible {
+  border-color: #5db5ae88;
 }
 
 a {
