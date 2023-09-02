@@ -1,6 +1,5 @@
 .imageUser {
   background-color: white;
-  width: 280px;
   height: 280px;
   object-fit: cover;
   border-radius: 50%;
@@ -12,5 +11,5 @@
 }
 
 .dataProfile {
-  padding: 2rem;
+  width: 20vw;
 }

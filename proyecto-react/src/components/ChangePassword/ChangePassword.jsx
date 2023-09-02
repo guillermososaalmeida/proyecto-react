@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../../context/authContext";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
-
+import "./ChangePassword.css";
 import { useChangePasswordError } from "../../hooks";
 import { changePasswordUserToken } from "../../services/user.service";
 

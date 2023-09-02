@@ -98,7 +98,7 @@ export const FormProfile = () => {
                 disabled={send}
                 style={{ background: send ? "28c6ff88" : "#28c6ff" }}
               >
-                SUMMIT CHANGES
+                SUBMIT CHANGES
               </button>
             </div>
           </form>
