@@ -27,8 +27,10 @@ export const Home = () => {
           <Header />
           <Flex direction="column">
             <Stack>
-              <Heading p="5">Home</Heading>
-              <Heading ml="5" size="4xs">
+              <Heading p="5" color="black">
+                Home
+              </Heading>
+              <Heading ml="5" size="4xs" color="black" fontSize="20">
                 All games here!!
               </Heading>
             </Stack>

@@ -49,7 +49,9 @@ const getById = async (req, res, next) => {
     const gameById = await Game.findById(id);
 
     if (gameById) {
-      return res.status(200).json({ data: gameById });
+      return res
+        .status(200)
+        .json({ data: await Game.findById(id).populate("platforms") });
     } else {
       res.status(404).json("game not found");
     }

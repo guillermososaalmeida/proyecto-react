@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 import { useGetById } from "../../hooks/useGetById";
 import { Header, Sidebar } from "../../components";
 import "./Detail.css";
+import { HStack, Stack } from "@chakra-ui/react";
 
 export const Detail = () => {
   const { id } = useParams();
 
   const [game, setGame] = useState({});
   const { image, name, pegi, genre, year, theme, platforms } = game;
-
   useEffect(() => {
     (async () => {
       setGame(await useGetById(id));
@@ -43,7 +43,9 @@ export const Detail = () => {
               </div>
               <div className="InfoSection">
                 <h3>PLATFORMS</h3>
-                <p>{platforms}</p>
+                {platforms?.map((platform) => (
+                  <p>{platform?.name}</p>
+                ))}
               </div>
               <div className="InfoSection">
                 <h3>PEGI</h3>

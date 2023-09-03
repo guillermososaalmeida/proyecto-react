@@ -25,7 +25,9 @@ export const Dashboard = () => {
         <Sidebar />
         <Flex direction="column" w="80vw">
           <Header />
-          <Heading p="5">Library</Heading>
+          <Heading p="5" color="black">
+            Library
+          </Heading>
           <Flex gap="10" p="5">
             {userData?.acquired?.map(({ gameId }) => (
               <Card key={gameId._id} borderRadius="15">
