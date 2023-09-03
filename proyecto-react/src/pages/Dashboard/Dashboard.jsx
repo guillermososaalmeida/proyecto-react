@@ -5,6 +5,7 @@ import { useAcquired } from "../../hooks/useAcquired";
 
 import "./Dashboard.css";
 import { Card, Center, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export const Dashboard = () => {
   const [userData, setUserData] = useState({});
@@ -39,9 +40,9 @@ export const Dashboard = () => {
                     alt={gameId.name}
                     borderRadius="15"
                   />
-                  <Text p="5">
+                  <Link to={`/home/detail/${gameId._id}`}>
                     {gameId?.name} || {gameId?.genre}
-                  </Text>
+                  </Link>
                 </Center>
               </Card>
             ))}

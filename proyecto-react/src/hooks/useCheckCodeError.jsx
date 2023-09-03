@@ -1,7 +1,6 @@
 import Swal from "sweetalert2";
 
 export const useCheckCodeError = ({ confirmationCodeResponse, userLogin }) => {
-  console.log("confirmationCodeResponse", confirmationCodeResponse);
   // ---------------------> 500
   if (confirmationCodeResponse?.response?.status == 500) {
     Swal.fire({

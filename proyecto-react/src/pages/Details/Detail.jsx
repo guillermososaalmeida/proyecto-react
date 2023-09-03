@@ -3,27 +3,42 @@ import { useParams } from "react-router-dom";
 import { useGetById } from "../../hooks/useGetById";
 import { Header, Sidebar } from "../../components";
 import "./Detail.css";
-import { HStack, Select, Stack } from "@chakra-ui/react";
+import { Button, HStack, Select, Stack } from "@chakra-ui/react";
 import { toggleAcquiredGame } from "../../services/user.service";
 import { useAcquired } from "../../hooks/useAcquired";
 import { useForm } from "react-hook-form";
+import { useAddAcquiredGameError } from "../../hooks/useAddAcquiredGameError";
 
 export const Detail = () => {
   const { register, handleSubmit } = useForm();
+  const [isLoading, setIsLoading] = useState();
+  const [isAcquired, setIsAcquired] = useState();
   const { id } = useParams();
   const [game, setGame] = useState({});
   const { image, name, pegi, genre, year, theme, platforms, _id } = game;
+
+  useEffect(() => {
+    useAddAcquiredGameError(isAcquired);
+  }, [isAcquired]);
+
   useEffect(() => {
     (async () => {
       setGame(await useGetById(id));
     })();
   }, []);
 
-  const selectInput = document.querySelector(".platformIdentifier");
-  let platformID = selectInput?.value;
-
   const registerGame = async ({ platform }) => {
-    toggleAcquiredGame({ game: id, platform });
+    if (isAcquired === true) {
+      setIsLoading(true);
+      toggleAcquiredGame({ game: id, platform });
+      setIsAcquired(false);
+      setIsLoading(false);
+    } else {
+      setIsLoading(true);
+      toggleAcquiredGame({ game: id, platform });
+      setIsAcquired(true);
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -44,7 +59,7 @@ export const Detail = () => {
               </div>
               <div className="GameInfo">
                 <div className="InfoSection">
-                  <h3>GENDER</h3>
+                  <h3>GENRE</h3>
                   <p>{genre}</p>
                 </div>
                 <div className="InfoSection">
@@ -75,7 +90,11 @@ export const Detail = () => {
                   </Select>
                 </div>
 
-                <button type="submit">MARCAR COMO ADQUIRIDO</button>
+                <Button isLoading={isLoading} type="submit">
+                  {isAcquired
+                    ? "QUITAR DE TU BIBLIOTECA"
+                    : "AÑADIR A TU BIBLIOTECA"}
+                </Button>
               </div>
             </div>
           </form>

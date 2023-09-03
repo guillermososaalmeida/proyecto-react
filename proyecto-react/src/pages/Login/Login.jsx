@@ -24,7 +24,6 @@ export const Login = () => {
   };
 
   useEffect(() => {
-    //! revisar nombres de estados
     useLoginError(loggedUser, setLoggedUser, userLogin, setLoginOk);
   }, [loggedUser]);
 

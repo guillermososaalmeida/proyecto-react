@@ -49,7 +49,6 @@ export const Home = () => {
                     <Link to={`/home/detail/${game._id}`}>
                       {game?.name} || {game?.genre}
                     </Link>
-                    <Text p="5"></Text>
                   </Center>
                 </Card>
               ))}
