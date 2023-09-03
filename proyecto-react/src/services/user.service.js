@@ -87,3 +87,15 @@ export const getUserById = async (id) => {
     .then((res) => res.data)
     .catch((error) => error);
 };
+
+//! ADQURIR JUEGO
+
+export const toggleAcquiredGame = async (formData) => {
+  return APIuser.patch("/users/addAcquiredGame/add", formData, {
+    headers: {
+      Authorization: `Bearer ${updateToken()}`,
+    },
+  })
+    .then((res) => res.data)
+    .catch((error) => error);
+};

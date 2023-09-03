@@ -14,7 +14,6 @@ export const Dashboard = () => {
     const getData = async () => {
       const userDataResponse = await useAcquired(user._id);
       setUserData(userDataResponse);
-      console.log(userDataResponse);
     };
     getData();
   }, []);
