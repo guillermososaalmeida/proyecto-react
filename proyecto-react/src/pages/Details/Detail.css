@@ -31,12 +31,14 @@
 
 .GameCover img {
   width: 100%;
+  max-width: 300px;
   height: 500px;
   object-fit: cover;
 }
 
 .GameDetailInfo {
-  width: 70%;
+  width: 60vh;
+  min-width: 60vh;
 }
 
 .GameTitle {
