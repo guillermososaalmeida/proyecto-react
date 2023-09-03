@@ -48,7 +48,6 @@ export const Login = () => {
         <HeaderLogin />
         <div className="form-wrap">
           <h1>Login</h1>
-
           <form onSubmit={handleSubmit(formSubmit)}>
             <div className="email_container form-group">
               <p>email</p>

@@ -76,7 +76,7 @@ export const Welcome = () => {
             </Link>
           </HStack>
 
-          <h1>Todos tus juegos a la alcance de tu mano</h1>
+          <h1>Todos tus juegos al alcance de tu mano</h1>
           <p>Únete ya para poder tener todos tus juegos en un solo lugar </p>
           <Link to="/register">
             <button className="btn-register">
