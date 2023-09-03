@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 
 export const Header = () => {
   const { user } = useAuth();
+  const { logout } = useAuth();
   const navigate = useNavigate();
 
   const handleEnter = (e) => {
@@ -51,6 +52,7 @@ export const Header = () => {
         <HStack>
           <Button>Wish List</Button>
           <Button>My platforms</Button>
+          <Button onClick={logout}>Logout</Button>
           <Link to="/profile">
             <Avatar src={user.image} />
           </Link>

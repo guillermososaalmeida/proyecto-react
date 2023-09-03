@@ -11,6 +11,21 @@
   border-radius: 50%;
 }
 
+.profileBody {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.profilePageContainer {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
 .profileContainer {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50vh;
 }

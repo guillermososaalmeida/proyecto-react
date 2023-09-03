@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Welcome.css";
 import { useNavigate } from "react-router-dom";
-import { Button, Link } from "@chakra-ui/react";
+import { Button, HStack, Link } from "@chakra-ui/react";
 
 export const Welcome = () => {
   const navigate = useNavigate();
@@ -70,12 +70,19 @@ export const Welcome = () => {
     <>
       <div className="welcomeBody">
         <div className="HeaderWelcomeContainer">
-          <button className="btn-login" onClick="location./login">
-            Login
-          </button>
+          <HStack>
+            <Link to="/login">
+              <Button>Login</Button>
+            </Link>
+          </HStack>
+
           <h1>Todos tus juegos a la alcance de tu mano</h1>
           <p>Únete ya para poder tener todos tus juegos en un solo lugar </p>
-          <button className="btn-register">Click here to Register now!</button>
+          <Link to="/register">
+            <button className="btn-register">
+              Click here to Register now!
+            </button>
+          </Link>
         </div>
         <div className="CarruselContainer">
           <button
