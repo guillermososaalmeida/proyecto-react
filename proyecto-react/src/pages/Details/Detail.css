@@ -21,8 +21,13 @@
 .GameDetails {
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 50px;
   margin: 30px;
+}
+
+.GameDetails form {
+  display: flex;
 }
 
 .GameCover {
