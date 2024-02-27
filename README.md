@@ -1,2 +1,2 @@
 # proyecto-react
-Proyecto en pareja del módulo de React JS
+Proyecto del módulo de React JS
